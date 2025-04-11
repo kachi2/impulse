@@ -1,4 +1,7 @@
 <!--Footer upper-->
+<div style="background: #fff; height:100px">
+
+</div>
 <section id="footer-upper" class="space">
     <div class="container">
         <div class="row">
@@ -86,41 +89,11 @@
     <div class="sp-module-content">
         <ul class="nav menu">
             <li class="active deeper parent">
-                <a href="index.html"> Home</a>
-                <ul class="dropdown-menu">
-                    <li><a href="index.business.html"> Home Business</a></li>
-                    <li><a href="index.agancy.html"> Home Agency</a></li>
-                    <li><a href="index.medical.html"> Home Medical</a></li>
-                    <li><a href="index.event.html"> Home Event</a></li>
-                </ul>
-            </li>
-            <li class="deeper parent"><a href="#"> Header</a>
-                <ul class="dropdown-menu">
-                    <li><a href="header-v2.html"> Header Style 2</a></li>
-                    <li><a href="header-v3.html"> Header Style 3</a></li>
-                    <li><a href="header-v4.html"> Header Style 4</a></li>
-                    <li><a href="header-v5.html"> Header Style 5</a></li>
-                </ul>
-            </li>
-            <li class="deeper parent"><a href="#"> Pages</a>
-                <ul class="dropdown-menu">
-                    <li><a href="about-us.html"> About us </a></li>
-                    <li><a href="services.html"> Service</a></li>
-                    <li><a href="price-plans.html"> Pricing plan</a></li>
-                    <li><a href="team-members.html"> Team Member</a></li>
-                    <li><a href="coming-soon.html"> Coming soon</a></li>
-                    <li><a href="404-error.html"> 404</a></li>
-                </ul>
-            </li>
-            <li><a href="portfolio.html"> Portfolio </a></li>
-            <li class="deeper parent"><a href="blog.html"> Blog</a>
-                <ul class="dropdown-menu">
-                    <li><a href="single-blog.html"> Single Article</a></li>
-                    <li><a href="blog-left-sidebar.html"> Blog with right sidebar</a></li>
-                    <li><a href="blog-right-sidebar.html"> Blog with left sidebar</a></li>
-                </ul>
-            </li>
-            <li><a href="contact.html"> Contact us </a></li>
+                @foreach ($menus as $menu )
+                <li > 
+                @if($menu->name == 'Home') <a  href="{{route('index')}}">{{$menu->name}}</a> @else <a  href="{{route('pages', encrypt($menu->id))}}">{{$menu->name}}</a> @endif
+               </li>
+                @endforeach
         </ul>
     </div>
 </div>

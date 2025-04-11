@@ -8,9 +8,7 @@
                         <li data-transition="random" data-slotamount="7" data-masterspeed="300" data-thumb="{{asset('images/'.$slider->image)}}"  data-saveperformance="off"  data-title="Slide">
                             <!-- MAIN IMAGE -->
                             <img src="{{asset('images/'.$slider->image)}}"  alt="slider-img2"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
-                            <!-- LAYERS -->
-
-                            <!-- LAYER NR. 1 -->
+                         
                             <div class="tp-caption excerpt sft tp-resizeme"
                                  data-x="-3"
                                  data-y="179"
@@ -22,11 +20,21 @@
                                  data-elementdelay="0.1"
                                  data-endelementdelay="0.1"
                                  data-endspeed="300"
-
                                  style="z-index: 5; max-width: auto; max-height: auto; white-space: nowrap;">{!! $slider->title !!}
                             </div>
-
-                            <!-- LAYER NR. 3 -->
+									<div class="tp-caption excerpt-big sft tp-resizeme"
+                                    data-x="-2"
+                                    data-y="230"
+                                    data-speed="800"
+                                    data-start="1900"
+                                    data-easing="Power3.easeInOut"
+                                    data-splitin="chars"
+                                    data-splitout="none"
+                                    data-elementdelay="0.1"
+                                    data-endelementdelay="0.1"
+                                    data-endspeed="300"
+                                    style="z-index: 6; max-width: auto; max-height: auto; white-space: nowrap;">{!! $slider->content !!}
+                               </div>
                             <div class="tp-caption excerpt sfb tp-resizeme"
                                  data-x="1"
                                  data-y="332"
@@ -39,7 +47,7 @@
                                  data-endelementdelay="0.1"
                                  data-endspeed="300"
 
-                                 style="z-index: 7; max-width: auto; max-height: auto; white-space: nowrap;">{!! $slider->content !!}
+                                 style="z-index: 7; max-width: auto; max-height: auto; white-space: nowrap;">
                             </div>
                         </li>
                         @empty

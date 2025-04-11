@@ -30,7 +30,7 @@ class SliderController extends Controller
             'image' => 'required',
             'content' => 'required',
             'title' => 'required',
-            'link' => 'integer|required'
+            // 'link' => 'integer|required'
         ]);
        //dd(request()->file('images'));
 
@@ -40,13 +40,13 @@ class SliderController extends Controller
             $fileName = time().'.'.$ext;
             $image->move('images',$fileName);
     }
-    $link = route('subpages', encrypt($request->link));
+    // $link = route('subpages', encrypt($request->link));
         $data = [
             'image' =>   $fileName,
             'content' => $request->content,
             'title' =>  $request->title,
             'status' => 1,
-            'links' => $link
+            // 'links' => $link
         ];
 
         Slider::create($data);

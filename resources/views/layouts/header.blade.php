@@ -4,7 +4,7 @@
             <section id="topbar">
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm-12 text-right topbar-block">
+                        {{-- <div class="col-sm-12 text-right topbar-block">
                             <ul class="sp-contact-info">
                                 <li class="sp-contact-phone">
                                     <i class="fa fa-phone"></i>&nbsp; Phone: &nbsp;<a href=" {{$settings->site_phone}}"> {{$settings->site_phone}}</a>
@@ -16,7 +16,7 @@
                                     <i class="fa fa-clock-o"></i>&nbsp; Office Time: &nbsp;<a>{{$settings->opening_hours}}</a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </section>
