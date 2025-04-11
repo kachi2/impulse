@@ -1,86 +1,67 @@
-<header class="header-area">
-    <!-- Start Pre Header Area -->
-    <div class="prehedaer-area-wrapper">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-8 col-xl-6 offset-xl-2 d-none d-sm-block">
-                    <div class="pre-header-left d-sm-flex justify-content-center justify-content-lg-start">
-                        <div class="pre-header-item">
-                            <a href="tel:1-775-97-377"><i class="fa fa-phone"></i> {{$settings->site_phone}}</a>
-                        </div>
-
-                        <div class="pre-header-item">
-                            <span><i class="fa fa-clock-o"></i>{{$settings->opening_hours}}</span>
-                        </div>
-
-                        <div class="pre-header-item">
-                            <a href="mailto:your@example.com"><i class="fa fa-envelope-o"></i> {{$settings->site_email}}</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 d-none d-lg-block">
-                    <div class="pre-header-right text-center text-md-end">
-                        <div class="social-icons">
-                            <a href="{{$settings->facebook}}"><i class="fa fa-facebook"></i></a>
-                            <a href="{{$settings->twitter}}"><i class="fa fa-twitter"></i></a>
-                            {{-- <a href="{{$settings->linkedIn}}"><i class="fa fa-linkedin"></i></a> --}}
-                            <a href="{{$settings->instagram}}"><i class="fa fa-instagram"></i></a>
-                            {{-- <a href="{{$settings->pinterest}}"><i class="fa fa-pinterest"></i></a> --}}
+    <section class="wrapper off-canvas-menu-wrap">
+        <div class="body-innerwrapper">
+            <!--Top bar-->
+            <section id="topbar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 text-right topbar-block">
+                            <ul class="sp-contact-info">
+                                <li class="sp-contact-phone">
+                                    <i class="fa fa-phone"></i>&nbsp; Phone: &nbsp;<a href=" {{$settings->site_phone}}"> {{$settings->site_phone}}</a>
+                                </li>
+                                <li class="sp-contact-email">
+                                    <i class="fa fa-envelope-o"></i>&nbsp; Email:&nbsp; <a href="mailto: {{$settings->site_email}}"> {{$settings->site_email}}</a>
+                                </li>
+                                <li class="sp-contact-time">
+                                    <i class="fa fa-clock-o"></i>&nbsp; Office Time: &nbsp;<a>{{$settings->opening_hours}}</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Pre Header Area -->
-
-    <!-- Start Header Bottom Area  -->
-    <div class="header-bottom header-shape sticky-header">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-5 col-lg-2">
-                    <!-- Start Logo Area -->
-                    <div class="logo-are">
-                        <a href="{{route('index')}}"><img src="{{asset('assets/'.$settings->logo)}}"  width="160px" alt="Logo"/></a>
+            </section>
+            <!--Header-->
+            <header id="sp-header" class="menu-fixed-out header-3" data-spy="affix" data-offset-top="50">
+                <div class="container">
+                    <div class="row">
+                        <div id="sp-logo" class="col-xs-8 col-sm-3 col-md-3">
+                            <h1 class="logo">
+                                <a href="{{route('index')}}"><img class="sp-default-logo" src="{{asset('assets/'.$settings->logo)}}" alt="{{$settings->logo}}" style="width: 130px"></a>
+                            </h1>
+                        </div>
+                        <div id="sp-menu" class="col-xs-4 col-sm-7 col-md-7">
+                            <div class="sp-column ">
+                                <div class="sp-megamenu-wrapper">
+                                    <a id="offcanvas-toggler" class="visible-sm visible-xs" href="#"><i class="fa fa-bars"></i></a>
+                                    <ul class="sp-megamenu-parent menu-slide-down hidden-sm hidden-xs">
+                                        @foreach ($menus as $menu )
+                                        <li class="sp-menu-item @if($menu->has_child) sp-has-child @endif">
+                                            <a href="{{route('pages', encrypt($menu->id))}}">{{$menu->name}}</a>
+                                            @if(count($menu->subMenu) > 0)
+                                            <div class="sp-dropdown sp-dropdown-main sp-menu-right">
+                                                <div class="sp-dropdown-inner">
+                                                    <ul class="sp-dropdown-items">
+                                                        @forelse ($menu->subMenu as $sub ) 
+                                                        <li><a href="{{route('subpages', encrypt($sub->id))}}">{{$sub->name}}</a></li>   
+                                                        @empty
+                                                        @endforelse
+                                                </div>
+                                            </div>
+                                            @endif
+                                        </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        {{-- <div class="sp-column col-sm-2 col-xs-12  social-one social-two">
+                            <ul class="social-icons">
+                                <li><a target="_blank" href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a target="_blank" href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a target="_blank" href="#"><i class="fa fa-pinterest"></i></a></li>
+                                <li><a target="_blank" href="#"><i class="fa fa-dribbble"></i></a></li>
+                            </ul>
+                        </div> --}}
                     </div>
-                    <!-- End Logo Area -->
                 </div>
-
-                <div class="col-lg-8 d-none d-lg-block">
-                    <!-- Start Navigation Area -->
-                    <nav class="navigation-area">
-                        <ul class="main-menu nav">
-                            @foreach ($menus as $menu )
-                            <li class="@if($menu->has_child) dropdown-navbar @else @endif ">@if($menu->name == 'Home') <a href="{{route('index')}}">{{$menu->name}}</a> @else <a href="{{route('pages', encrypt($menu->id))}}">{{$menu->name}}</a> @endif
-                                @if(count($menu->subMenu) > 0)
-                                <ul class="dropdown-nav">
-                                    @forelse ($menu->subMenu as $sub ) 
-                                    <li><a href="{{route('subpages', encrypt($sub->id))}}">{{$sub->name}}</a></li>   
-                                    @empty
-                                    @endforelse
-                                </ul>
-                            </li>
-                            @endif
-                            @endforeach
-                        </ul>
-                    </nav>
-                    <!-- End Navigation Area -->
-                </div>
-
-                <div class="col-6 col-lg-2">
-                    <!-- Start Header Action Area -->
-                    <div class="header-action-area">
-                        <ul class="action-buttons nav justify-content-end">
-                            <li class="d-lg-none">
-                                <button class="btn-canvas-open"><i class="pe-7s-menu"></i></button>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- End Header Action Area -->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Header Bottom Area  -->
-</header>
+            </header>

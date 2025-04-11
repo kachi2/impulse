@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->integer('has_child')->nullable();
+            $table->string('slug')->nullable();
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }

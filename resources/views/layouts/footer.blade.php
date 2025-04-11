@@ -1,134 +1,146 @@
-<footer class="footer-area-wrapper">
-    <!-- Start Footer Widget Area -->
-    <div class="footer-widget-area">
-        <div class="container">
-            <div class="row mtm-30">
-                <div class="col-lg-4">
-                    <!-- Start Single Footer Widget-item -->
-                    <div class="widget-item">
-                        <div class="widget-body">
-                            <img class="mb-24" src="{{asset('/assets/'.$settings->logo)}}" width="160px" alt="Logo"/>
-                            <p style="color:#211d1d">{{$settings->about}}.</p>
-                            <div class="social-icons social-icons--two mt-22">
-                                <a href="{{$settings->facebook}}"><i class="fa fa-facebook"></i></a>
-                            <a href="{{$settings->twitter}}"><i class="fa fa-twitter"></i></a>
-                            {{-- <a href="{{$settings->linkedIn}}"><i class="fa fa-linkedin"></i></a> --}}
-                            <a href="{{$settings->instagram}}"><i class="fa fa-instagram"></i></a>
-                            {{-- <a href="{{$settings->pinterest}}"><i class="fa fa-pinterest"></i></a> --}}
-                            </div>
+<!--Footer upper-->
+<section id="footer-upper" class="space">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3 footer-block">
+                <a href="index.html" class="logo">
+                    <img src="{{asset('/assets/white_'.$settings->logo)}}" alt="logo" style="width:140px">
+                </a>
+                <p>{{$settings->about}}</p>
+                <ul class="contact">
+                    <li><a href="mailto:info@primax.com"><i class="fa fa-envelope-o" aria-hidden="true"></i> {{$settings->site_email}}</a></li>
+                    <li><a href="tel:{{$settings->site_phone}}"><i class="fa fa-phone" aria-hidden="true"></i>  {{$settings->site_phone}}</a></li>
+                    <li><i class="fa fa-map-marker" aria-hidden="true"></i>{{$settings->address}}</li>
+                </ul>
+                {{-- <ul class="corporate-social">
+                    <li><i class="fa fa-angle-double-right" aria-hidden="true"></i></li>
+                    <li><a target="_blank" href="#"><i class="fa fa-facebook-square"></i></a></li>
+                    <li><a target="_blank" href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a target="_blank" href="#"><i class="fa fa-pinterest-square"></i></a></li>
+                    <li><a target="_blank" href="#"><i class="fa fa-dribbble"></i></a></li>
+                    <li><a target="_blank" href="#"><i class="fa fa-behance"></i></a></li>
+                </ul> --}}
+            </div>
+            <div class="col-sm-3 footer-block">
+                <h3>Latest Blogs</h3>
+                <div class="recent-post">
+                   @forelse($site_blogs as $blog)
+                    <div class="post-block">
+                        <div class="post-image">
+                            <img src="{{asset('images/'.$blog->image)}}" alt="post">
+                        </div>
+                        <div class="post-content">
+                            <h5><a href="#">{{$blog->title}}</a> </h5>
                         </div>
                     </div>
-                    <!-- End Single Footer Widget-item -->
+                    @empty 
+                    @endforelse
+
                 </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <!-- Start Single Footer Widget-item -->
-                    <div class="widget-item">
-                        <div class="widget-body">
-                            <div class="widget-title">
-                                <h3 style="color:#211d1d">Help Links</h3>
-                            </div>
-
-                            <div class="widget-body">
-                                <ul class="list list-6">
-                                    @foreach ($menus as $menu )
-                                    <li > 
-                                    @if($menu->name == 'Home') <a style="color:#211d1d"  href="{{route('index')}}">{{$menu->name}}</a> @else <a style="color:#211d1d" href="{{route('pages', encrypt($menu->id))}}">{{$menu->name}}</a> @endif
-                                   </li>
-                                    @endforeach
-                               
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Single Footer Widget-item -->
+            </div>
+            <div class="col-sm-3 footer-block">
+                <div class="tags">
+                    <h3>Useful Links</h3>
+                    <ul class="tagspopular">
+                        @foreach ($menus as $menu )
+                        <li > 
+                        @if($menu->name == 'Home') <a  href="{{route('index')}}">{{$menu->name}}</a> @else <a  href="{{route('pages', encrypt($menu->id))}}">{{$menu->name}}</a> @endif
+                       </li>
+                        @endforeach
+                    </ul>
                 </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <!-- Start Single Footer Widget-item -->
-                    <div class="widget-item">
-                        <div class="widget-body">
-                            <div class="widget-title">
-                                <h3 style="color:#211d1d">Our Office</h3>
-                            </div>
-
-                            <div class="widget-body">
-                                <div class="office-info">
-                                    <p style="color:#211d1d"><i class="fa fa-map-marker"></i> {{$settings->address}}.</p>
-                                    <p style="color:#211d1d"><i class="fa fa-phone"></i>  {{$settings->site_phone}}</p>
-                                    <p style="color:#211d1d"><i class="fa fa-envelope-o"></i>  {{$settings->site_email}}</p>
-                                    <p style="color:#211d1d"><i class="fa fa-clock-o"></i>  {{$settings->opening_hours}}</p>
-                                </div>
-                            </div>
+                
+            </div>
+            <div class="col-sm-3 footer-block">
+                <div class="newsletter">
+                    <h3>Newsletter </h3>
+                    <p>Enter your mailing address for our mailing list to keep you yourself updated. </p>
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="E-mail address">
+                            <button type="submit" class="sppb-btn">Send</button>
                         </div>
-                    </div>
-                    <!-- End Single Footer Widget-item -->
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-    <!-- End Footer Widget Area -->
-
-    <!-- Start Footer Bottom Area -->
-    <div class="footer-bottom-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <div class="copyright-text">
-                        <p> &copy; Copyrights
-                             <script>
-                                //document.write(new Date().getFullYear())
-                            </script>
-                           {{$settings->site_copyright}}
-                        </p>
-                    </div>
-                </div>
+</section>
+<!--Footer-->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center copyrights">
+                {{$settings->site_copyright}}
             </div>
         </div>
     </div>
-    <!-- End Footer Bottom Area -->
 </footer>
-<!--== End Footer Area Wrapper ==-->
-
-<!-- Start Off Canvas Menu Wrapper -->
-<aside class="off-canvas-wrapper">
-    <div class="off-canvas-overlay"></div>
-    <div class="off-canvas-inner">
-        <!-- Start Off Canvas Content Wrapper -->
-        <div class="off-canvas-content">
-            <div class="off-canvas-item">
-                <!-- Start Mobile Menu Wrapper -->
-                <div class="res-mobile-menu">
-                    <!-- Note Content Auto Generate By Jquery From Main Menu -->
-                </div>
-                <!-- End Mobile Menu Wrapper -->
-            </div>
-
-            <div class="off-canvas-item">
-                <div class="off-canvas-footer text-center">
-                    <div class="social-icons">
-                        <a href="{{$settings->facebook}}"><i class="fa fa-facebook"></i></a>
-                        <a href="{{$settings->twitter}}"><i class="fa fa-twitter"></i></a>
-                        {{-- <a href="{{$settings->linkedIn}}"><i class="fa fa-linkedin"></i></a> --}}
-                        <a href="{{$settings->intagram}}"><i class="fa fa-instagram"></i></a>
-                        {{-- <a href="{{$settings->pinterest}}"><i class="fa fa-pinterest"></i></a> --}}
-                    </div>
-
-                    <div class="copyright-text">
-                        <p> &copy; Copyrights
-                            <script>
-                              // document.write(new Date().getFullYear())
-                           </script>
-                          {{$settings->site_copyright}}
-                       </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Off Canvas Content Wrapper -->
-
-        <button class="btn-close"><i class="fa fa-close"></i></button>
+</div>
+</section>
+<!--Offcanvas-->
+<div class="offcanvas-menu">
+<a href="#" class="close-offcanvas"><i class="fa fa-remove"></i></a>
+<div class="offcanvas-inner">
+<div class="sp-module ">
+    <div class="sp-module-content">
+        <ul class="nav menu">
+            <li class="active deeper parent">
+                <a href="index.html"> Home</a>
+                <ul class="dropdown-menu">
+                    <li><a href="index.business.html"> Home Business</a></li>
+                    <li><a href="index.agancy.html"> Home Agency</a></li>
+                    <li><a href="index.medical.html"> Home Medical</a></li>
+                    <li><a href="index.event.html"> Home Event</a></li>
+                </ul>
+            </li>
+            <li class="deeper parent"><a href="#"> Header</a>
+                <ul class="dropdown-menu">
+                    <li><a href="header-v2.html"> Header Style 2</a></li>
+                    <li><a href="header-v3.html"> Header Style 3</a></li>
+                    <li><a href="header-v4.html"> Header Style 4</a></li>
+                    <li><a href="header-v5.html"> Header Style 5</a></li>
+                </ul>
+            </li>
+            <li class="deeper parent"><a href="#"> Pages</a>
+                <ul class="dropdown-menu">
+                    <li><a href="about-us.html"> About us </a></li>
+                    <li><a href="services.html"> Service</a></li>
+                    <li><a href="price-plans.html"> Pricing plan</a></li>
+                    <li><a href="team-members.html"> Team Member</a></li>
+                    <li><a href="coming-soon.html"> Coming soon</a></li>
+                    <li><a href="404-error.html"> 404</a></li>
+                </ul>
+            </li>
+            <li><a href="portfolio.html"> Portfolio </a></li>
+            <li class="deeper parent"><a href="blog.html"> Blog</a>
+                <ul class="dropdown-menu">
+                    <li><a href="single-blog.html"> Single Article</a></li>
+                    <li><a href="blog-left-sidebar.html"> Blog with right sidebar</a></li>
+                    <li><a href="blog-right-sidebar.html"> Blog with left sidebar</a></li>
+                </ul>
+            </li>
+            <li><a href="contact.html"> Contact us </a></li>
+        </ul>
     </div>
-</aside>
-
-@include('layouts.js')
+</div>
+</div>
+</div>
+<!--All Script-->
+<script src="{{asset('/frontend/js/bootstrap.js')}}" type="text/javascript"></script>
+<script type="text/javascript" src="{{asset('/frontend/js/appear.js')}}"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0YyDTa0qqOjIerob2VTIwo_XVMhrruxo"></script>
+<script src="{{asset('/frontend/js/jquery.themepunch.tools.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('/frontend/js/jquery.themepunch.revolution.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('/frontend/js/jquery.parallax-1.1.3.js')}}" type="text/javascript"></script>
+<script src="{{asset('/frontend/js/smoothscroll.js')}}" type="text/javascript"></script>
+<script src="{{asset('/frontend/js/owl.carousel.js')}}" type="text/javascript"></script>
+<script src="{{asset('/frontend/js/sp-flickr-gallery.js')}}" type="text/javascript"></script>
+<script src="{{asset('/frontend/js/spsimpleportfolio.js')}}" type="text/javascript"></script>
+<script src="{{asset('/frontend/js/featherlight.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('/frontend/js/jquery.shuffle.modernizr.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('/frontend/js/morphext.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('/frontend/js/count-down.js')}}" type="text/javascript"></script>
+<script src="{{asset('/frontend/js/main.js')}}" type="text/javascript"></script>
+</body>
+</html>

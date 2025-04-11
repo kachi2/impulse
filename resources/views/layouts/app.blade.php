@@ -1,39 +1,34 @@
 <!DOCTYPE html>
-<html class="no-js" lang="zxx">
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-    <title> {{$settings->site_name}}</title>
-    @yield('style')
-    <!--== Favicon ==-->
-    <link rel="shortcut icon" href="{{asset('/images/fav.png')}}" type="image/x-icon"/>
-
-    <!--== Google Fonts ==-->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600,700" rel="stylesheet"/>
-
-   
-    <link href="{{asset('/assets/css/style.css')}}" rel="stylesheet"/>
-
-    <link href="{{asset('/assets/css/slicknav.min.css')}}" rel="stylesheet"/>
-    <link href="{{asset('/assets/css/slick.min.css')}}" rel="stylesheet"/>
-    <link href="{{asset('/assets/css/settings.css')}}" rel="stylesheet"/>
-    <link href="{{asset('/assets/css/pe-7-stroke-icon.css')}}" rel="stylesheet"/>
-    <link href="{{asset('/assets/css/nice-select.min.css')}}" rel="stylesheet"/>
-    <link href="{{asset('/assets/css/magnific-popup.min.css')}}" rel="stylesheet"/>
-    <link href="{{asset('/assets/css/leaflet.min.css')}}" rel="stylesheet"/>
-    <link href="{{asset('/assets/css/jquery-ui.min.css')}}" rel="stylesheet"/>
-    <link href="{{asset('/assets/css/helper.min.css')}}" rel="stylesheet"/>
-    <link href="{{asset('/assets/css/font-awesome.min.css')}}" rel="stylesheet"/>
-    <link href="{{asset('/assets/css/bootstrap.min.css')}}" rel="stylesheet"/>
-    <!--== Main Style CSS ==-->
-    <link href="{{asset('assets/css/style.css')}}" rel="stylesheet"/>
-
-    <!--[if lt IE 9]>
-    <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>{{$settings?->site_name}}</title>
+	<meta name="keywords" content=" ">
+	<meta name="description" content=" ">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link href="images/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+	<!--All Css-->
+	<link rel="stylesheet" href="{{asset('/frontend/css/bootstrap.css')}}" type="text/css" />
+	<link rel="stylesheet" href="{{asset('/frontend/css/font-awesome.min.css')}}" type="text/css" />
+	<link rel="stylesheet" href="{{asset('/frontend/css/et-line.css')}}" type="text/css" />
+	<link rel="stylesheet" href="{{asset('/frontend/css/themefy-icon.css')}}" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="{{asset('/frontend/css/animate.min.css')}}">
+	<!--Revolution slider-->
+	<link rel="stylesheet" href="{{asset('/frontend/css/settings.css')}}" type="text/css" />
+	<link rel="stylesheet" href="{{asset('/frontend/css/dynamic-captions.css')}}" type="text/css" />
+	<link rel="stylesheet" href="{{asset('/frontend/css/static-captions.css')}}" type="text/css" />
+	<!--Owl Carousel-->
+	<link rel="stylesheet" href="{{asset('/frontend/css/owl.carousel.css')}}" type="text/css" />
+	<link rel="stylesheet" href="{{asset('/frontend/css/owl.theme.css')}}" type="text/css" />
+	<link rel="stylesheet" href="{{asset('/frontend/css/owl.transitions.css')}}" type="text/css" />
+	<link rel="stylesheet" href="{{asset('/frontend/css/spsimpleportfolio.css')}}" type="text/css" />
+	<link rel="stylesheet" href="{{asset('/frontend/css/featherlight.min.css')}}" type="text/css" />
+	<link rel="stylesheet" href="{{asset('/frontend/css/sp-flickr-gallery.css')}}" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="{{asset('/frontend/css/style.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('/frontend/css/skins/blue-layout.css')}}">
+	<!--Jquery-->
+	<script src="{{asset('/frontend/js/jQuery.js')}}" type="text/javascript"></script>
 </head>
 
 <body>

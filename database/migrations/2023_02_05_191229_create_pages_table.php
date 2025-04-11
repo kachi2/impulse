@@ -20,6 +20,9 @@ return new class extends Migration
             $table->text('contents')->nullable();
             $table->text('metas')->nullable();
             $table->string('links')->nullable();
+            $table->string('slug')->nullable();
+            $table->integer('menu_id')->nullable();
+            $table->integer('status')->nullable();
             $table->timestamps();
         });
     }

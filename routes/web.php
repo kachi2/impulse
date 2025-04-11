@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdminFormController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\ClientJobController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\TestimonialController;
@@ -37,7 +38,9 @@ use App\Http\Controllers\FormController;
 Route::get('/2fa', [Check2faController::class, 'Index'])->name('check2fa');
 Route::post('/2fa/verify/', [Check2faController::class, 'VerifyCode'])->name('VerifyCodes');
 
-Route::group(['prefix' => 'admins', 'as' => 'admin.'], function(){
+Route::group(['prefix' => 'manage', 'as' => 'admin.'], function(){
+    Route::get('login', [AuthenticatedSessionController::class, 'create'])
+    ->name('login');
     Route::middleware(['auth'])->group(function(){
      Route::middleware(['check2fa'])->group(function(){
     Route::get('/', [AdminDashboardController::class, 'Index'])->name('index');

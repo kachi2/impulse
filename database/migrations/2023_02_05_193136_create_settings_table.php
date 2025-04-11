@@ -22,6 +22,12 @@ return new class extends Migration
             $table->string('site_copyright')->nullable();
             $table->text('footer_menu')->nullable();
             $table->string('opening_hours')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('linkedIn')->nullable();
+            $table->string('pinterest')->nullable();
+            $table->string('address')->nullable();
+            $table->text('about')->nullable();
             $table->timestamps();
         });
     }

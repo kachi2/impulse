@@ -28,15 +28,6 @@
                     <li><a href="{{route('admin.Pages.Create')}}">Create Page</a></li>
               </ul>
         </li>
-        <li>
-            <a  href="" data-toggle="tooltip" data-placement="right" title="Manage FAQ"
-               data-nav-target="#dashboards">
-                <i class=" fa fa-question-circle"></i>&nbsp; Manage FAQ</a>
-                <ul>
-                    <li><a href="{{route('admin.faqCreate')}}">Create FAQ</a></li>
-                    <li><a href="{{route('admin.faq.index')}}">Manage FAQ</a></li>
-                </ul>
-            </li>
       
          <li>
             <a  href="" data-toggle="tooltip" data-placement="right" title="Manage Blogs"
@@ -47,18 +38,6 @@
                       <li><a href="{{route('admin.blogs.index')}}">Manage Blog</a></li>
                 </ul>
         </li>  
-        
-        <li>
-            <a  href="" data-toggle="tooltip" data-placement="right" title="Manage Jobs"
-               data-nav-target="#dashboards">
-                <i class="fa fa-tasks"></i>&nbsp; Manage Jobs</a>
-                <ul>
-                      <li><a href="{{route('admin.JobsCreate')}}">Post Jobs</a></li>
-                      <li><a href="{{route('admin.Jobs.index')}}">Manage Jobs</a></li>
-                      <li><a href="{{route('admin.category.index')}}">Manage Job Id </a> </li>
-                </ul>
-        </li> 
-        
         
         <li class="navigation-divider">Settings</li>
         <li>

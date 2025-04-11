@@ -18,11 +18,11 @@ class DashboardController extends Controller
         // $ss = SubMenu::where('menu_id', 2)->get();
         // dd($ss);
         return view('frontend.dashboard', [
-            'sliders' => Slider::where('status', 1)->get(),
-            'blogs' => Blog::where('status', 1)->latest()->get(),
-            'services' => SubMenu::where('menu_id', 2)->inRandomOrder()->get(),
-            'testimonials' => Testimonial::latest()->get(),
-            'logos' => ClientLogo::latest()->get(),
+            'sliders' => Slider::get(),
+            // 'blogs' => Blog::where('status', 1)->latest()->get(),
+            // 'services' => SubMenu::where('menu_id', 2)->inRandomOrder()->get(),
+            // 'testimonials' => Testimonial::latest()->get(),
+            // 'logos' => ClientLogo::latest()->get(),
         ]);
     }
 }

@@ -19,6 +19,11 @@ return new class extends Migration
             $table->string('content')->nullable();
             $table->string('image')->nullable();
             $table->string('links')->nullable();
+            $table->integer('status')->nullable();
+            $table->string('align')->default('right');
+            $table->string('color')->nullable();
+            $table->string('border_color')->nullable();
+            $table->string('bg_color')->nullable();
             $table->timestamps();
         });
     }
