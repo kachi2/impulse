@@ -1,67 +1,48 @@
-    <section class="wrapper off-canvas-menu-wrap">
-        <div class="body-innerwrapper">
-            <!--Top bar-->
-            <section id="topbar">
-                <div class="container">
-                    <div class="row">
-                        {{-- <div class="col-sm-12 text-right topbar-block">
-                            <ul class="sp-contact-info">
-                                <li class="sp-contact-phone">
-                                    <i class="fa fa-phone"></i>&nbsp; Phone: &nbsp;<a href=" {{$settings->site_phone}}"> {{$settings->site_phone}}</a>
-                                </li>
-                                <li class="sp-contact-email">
-                                    <i class="fa fa-envelope-o"></i>&nbsp; Email:&nbsp; <a href="mailto: {{$settings->site_email}}"> {{$settings->site_email}}</a>
-                                </li>
-                                <li class="sp-contact-time">
-                                    <i class="fa fa-clock-o"></i>&nbsp; Office Time: &nbsp;<a>{{$settings->opening_hours}}</a>
-                                </li>
-                            </ul>
-                        </div> --}}
-                    </div>
+<header class="header default">
+    <div class="topbar">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+              <div class="d-block d-md-flex align-items-center text-center">
+                <div class="me-4 d-inline-block py-1">
+                  <a href="#"><i class="far fa-envelope me-2 fa-flip-horizontal text-primary"></i> {{$settings->site_email}}</a>
                 </div>
-            </section>
-            <!--Header-->
-            <header id="sp-header" class="menu-fixed-out header-3" data-spy="affix" data-offset-top="50">
-                <div class="container">
-                    <div class="row">
-                        <div id="sp-logo" class="col-xs-8 col-sm-3 col-md-3">
-                            <h1 class="logo">
-                                <a href="{{route('index')}}"><img class="sp-default-logo" src="{{asset('assets/'.$settings->logo)}}" alt="{{$settings->logo}}" style="width: 130px"></a>
-                            </h1>
-                        </div>
-                        <div id="sp-menu" class="col-xs-4 col-sm-7 col-md-7">
-                            <div class="sp-column ">
-                                <div class="sp-megamenu-wrapper">
-                                    <a id="offcanvas-toggler" class="visible-sm visible-xs" href="#"><i class="fa fa-bars"></i></a>
-                                    <ul class="sp-megamenu-parent menu-slide-down hidden-sm hidden-xs">
-                                        @foreach ($menus as $menu )
-                                        <li class="sp-menu-item @if($menu->has_child) sp-has-child @endif">
-                                            <a href="{{route('pages', encrypt($menu->id))}}">{{$menu->name}}</a>
-                                            @if(count($menu->subMenu) > 0)
-                                            <div class="sp-dropdown sp-dropdown-main sp-menu-right">
-                                                <div class="sp-dropdown-inner">
-                                                    <ul class="sp-dropdown-items">
-                                                        @forelse ($menu->subMenu as $sub ) 
-                                                        <li><a href="{{route('subpages', encrypt($sub->id))}}">{{$sub->name}}</a></li>   
-                                                        @empty
-                                                        @endforelse
-                                                </div>
-                                            </div>
-                                            @endif
-                                        </li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        {{-- <div class="sp-column col-sm-2 col-xs-12  social-one social-two">
-                            <ul class="social-icons">
-                                <li><a target="_blank" href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a target="_blank" href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a target="_blank" href="#"><i class="fa fa-pinterest"></i></a></li>
-                                <li><a target="_blank" href="#"><i class="fa fa-dribbble"></i></a></li>
-                            </ul>
-                        </div> --}}
-                    </div>
+                <div class="me-auto d-inline-block py-1">
+                  <a href="tel:1-800-555-1234"><i class="fas fa-telephone-alt text-primary me-2"></i> {{$settings->site_phone}}</a>
                 </div>
-            </header>
+                <div class="d-inline-block py-1">
+                  <ul class="list-unstyled">
+                    <li><a href="">Blogs</a></li>
+                    <li><a href="">FAQ</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <nav class="navbar bg-white navbar-static-top navbar-expand-lg">
+      <div class="container-fluid">
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"><i class="fas fa-align-left"></i></button>
+          <a class="navbar-brand" href="{{route('index')}}"><img src="{{asset('assets/'.$settings->logo)}}"  class="img-fluid"  width="150px" height="30px" alt="Logo"/></a>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+              @foreach ($menus as $menu )
+              <li class="@if($menu->has_child) dropdown-navbar 
+                  @else @endif ">@if($menu->name == 'Home') <a  class="nav-link" href="{{route('index')}}">{{$menu->name}}</a> 
+                  @else <a  class="nav-link" href="{{route('pages', encrypt($menu->id))}}">{{$menu->name}}</a> @endif
+                  @if(count($menu->subMenu) > 0)
+                  <ul class="dropdown-nav">
+                      @forelse ($menu->subMenu as $sub ) 
+                      <li ><a  class="nav-link"  href="{{route('subpages', encrypt($sub->id))}}">{{$sub->name}}</a></li>   
+                      @empty
+                      @endforelse
+                  </ul>
+              </li>
+              @endif
+              @endforeach
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>

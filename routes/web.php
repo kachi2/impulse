@@ -1,25 +1,17 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminDashboardController;
-use App\Http\Controllers\AdminFormController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\ClientJobController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\TestimonialController;
-use App\Http\Controllers\JobsController;
+
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ManagePagesController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ClientLogoController;
 use App\Http\Controllers\FaqContoller;
 use App\Http\Controllers\PagesController;
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\MenuController as MenuPage;
-use App\Http\Controllers\NewsController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\Check2faController;
 use App\Http\Controllers\FormController;
@@ -84,18 +76,7 @@ Route::group(['prefix' => 'manage', 'as' => 'admin.'], function(){
         Route::get('/webiste/blog/diabled/{id}', 'BlogsDisable')->name('BlogsDisable');
     });
   
-    Route::controller(JobsController::class)->group(function(){
-        Route::get('/wesite/job', 'Index')->name('Jobs.index');
-        Route::get('/wesite/jobs/create', 'JobsCreate')->name('JobsCreate');
-        Route::post('/website/jobs/store', 'JobsStore')->name('JobsStore');
-        Route::get('/website/jobs/edit/{id}', 'JobsEdit')->name('JobsEdit');
-        Route::post('/website/jobs/update/{id}', 'JobsUpdate')->name('JobsUpdate');
-        Route::get('/wensite/jobs/delete/{id}', 'JobsDelete')->name('JobsDelete');
-        Route::get('/website/jobs/activate/{id}', 'JobsActivate')->name('JobsActivate');
-        Route::get('/webiste/jobs/diabled/{id}', 'JobsDisable')->name('JobsDisable');
-        Route::get('/webiste/jobs/applied/{id}', 'JobsApplied')->name('JobsApplied');
-        Route::get('/webiste/jobs/download/{id}', 'DownloadCV')->name('DownloadCV');
-    });
+
 
     Route::controller(SettingsController::class)->group(function(){
         Route::get('/website/settings/index', 'Index')->name('settings.index');
@@ -139,19 +120,6 @@ Route::group(['prefix' => 'manage', 'as' => 'admin.'], function(){
         Route::post('/website/faq/update/{id}', 'Update')->name('faqUpdate');
         Route::get('/website/faq/delete/{id}', 'Delete')->name('faqDelete');
     });
-    Route::controller(CategoryController::class)->group(function(){
-        Route::get('/website/category/index', 'Index')->name('category.index');
-        Route::get('/website/category/create', 'Create')->name('categoryCreate');
-        Route::post('/website/category/store', 'Store')->name('categoryStore');
-        Route::get('/website/category/edit/{id}', 'Edit')->name('categoryEdit');
-        Route::post('/website/category/update/{id}', 'Update')->name('categoryUpdate');
-        Route::get('/website/category/delete/{id}', 'Delete')->name('categoryDelete');
-    });
-
-    Route::get('/school/applicants', [AdminFormController::class, 'Index'])->name('form.index');
-    Route::get('/school/applicants/details/{email}', [AdminFormController::class, 'viewDetails'])->name('form.viewDetails');
-    
-    
 
 });
 });
@@ -171,9 +139,6 @@ Route::get('/jobs/industries/{id}',  'JobCategory')->name('industries-category')
 Route::post('/contactus/request', 'ContactEmails')->name('contact-email');
 });
 
-Route::post('/jobs/apply/{id}', [ClientJobController::class, 'ApplyJob'])->name('apply.job');
-Route::get('/job/details/{id}',  [ClientJobController::class, 'Details'])->name('job-details');
-Route::post('/request/services/',  [ClientJobController::class, 'RequestService'])->name('request-service');
 Route::post('/form/registration/', [FormController::class, 'viewForm'])->name('users.viewForm');
 Route::post('/form/submission', [FormController::class, 'UpdateForm'])->name('users.UpdateForm');
 

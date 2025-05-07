@@ -8,7 +8,6 @@
                         <div class="pre-header-item">
                             <a href="tel:1-775-97-377"><i class="fa fa-phone"></i> {{$settings->site_phone}}</a>
                         </div>
-
                         <div class="pre-header-item">
                             <span><i class="fa fa-clock-o"></i>{{$settings->opening_hours}}</span>
                         </div>
@@ -35,7 +34,7 @@
     </div>
     <!-- End Pre Header Area -->
 
-    <!-- Start Header Bottom Area  -->
+    <!-- Start Header Bottom Area  --> 
     <div class="header-bottom header-shape sticky-header">
         <div class="container">
             <div class="row align-items-center">
