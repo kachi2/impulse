@@ -1,90 +1,106 @@
-<footer class="footer p-5" style="background: #eee">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-6 col-lg-4 mb-4 mb-lg-0">
-          <p> <a href="{{route('index')}}"><img class="img-fluid" src="{{asset('assets/'.$settings->logo)}}" width="120px" alt="logo"></a></p>
-          <div class="footer-link">
-            <div class="row p-3">
-                Then with that thing in mind, follow these simple steps. Step One: <br>
-                Get yourself nice and relaxed and settled. Concentrate on your breathing,<br>
-                 engage in the moment and spend some time being still, quiet and drift inside of your own mind.<br>
-                  Hypnotize yourself here.
-                  <br>
-               <ul class="list-unstyled mb-0 social-icon">
-                   <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                   <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                   <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                   <li><a href="#"><i class="fab fa-github"></i></a></li>
-                 </ul>
+     <footer>
+            <div class="footer-area " style="background: #211d1d">
+                <div class="footer-top">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                                <div class="footer-widget">
+                                    <div class="fw-logo">
+                                        <a href="index.html"><img src="{{asset('/assets/'.$settings->logo)}}" alt=""></a>
+                                    </div>
+                                    <div class="footer-content">
+                                        <p>{{$settings->about}}</p>
+                                        <ul class="list-wrap">
+                                            <li><a href="{{$settings->facebook}}"><i class="fab fa-facebook-f"></i></a></li>
+                                            <li><a href="{{$settings->twitter}}"><i class="fab fa-twitter"></i></a></li>
+                                            <li><a href="{{$settings->instagram}}"><i class="fab fa-instagram"></i></a></li>
+                                           
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                                <div class="footer-widget">
+                                    <div class="fw-title">
+                                        <h4 class="title">IT Services</h4>
+                                    </div>
+                                    <div class="fw-link">
+                                        <ul class="list-wrap">
+                                            <li><a href="it-services.html">IT Services</a></li>
+                                            <li><a href="it-services.html">Cyber Security</a></li>
+                                            <li><a href="it-services.html">Cloud Computing</a></li>
+                                            <li><a href="it-services.html">Managed IT</a></li>
+                                            <li><a href="it-services.html">IT Support</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                                <div class="footer-widget">
+                                    <div class="fw-title">
+                                        <h4 class="title">Links</h4>
+                                    </div>
+                                    <div class="fw-link">
+                                        <ul class="list-wrap">
+                                         <ul class="list list-6">
+                                        @foreach ($menus as $menu )
+                                        <li > 
+                                        @if($menu->name == 'Home') <a href="{{route('index')}}">{{$menu->name}}</a> @else <a style="color:#211d1d" href="{{route('pages', encrypt($menu->id))}}">{{$menu->name}}</a> @endif
+                                        </li>
+                                        @endforeach
+                                
+                                        </ul>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                                <div class="footer-widget">
+                                    <div class="fw-title">
+                                        <h4 class="title">Support</h4>
+                                    </div>
+                                    <div class="fw-link">
+                                        <ul class="list-wrap">
+                                        <p><i class="fa fa-map-marker"></i> {{$settings->address}}.</p>
+                                        <p><i class="fa fa-phone"></i>  {{$settings->site_phone}}</p>
+                                        <p><i class="fa fa-envelope-o"></i>  {{$settings->site_email}}</p>
+                                        <p><i class="fa fa-clock-o"></i>  {{$settings->opening_hours}}</p>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <div class="copyright-text">
+                                        {{$settings->site_copyright}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-2 mb-4 mb-lg-0">
-          <h5 class="text-primary mb-2 mb-sm-4">The Company</h5>
-          <div class="footer-link">
-            <ul class="list-unstyled mb-0">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Contact Us</a></li>
-              <li><a href="#">Our Service</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-2 mb-4 mb-sm-0">
-          <h5 class="text-primary mb-2 mb-sm-4">Our Services</h5>
-          <div class="footer-link">
-            <ul class="list-unstyled mb-0">
-              <li><a href="#">Forum Support</a></li>
-              <li><a href="#">Help & FAQs</a></li>
-              <li><a href="#">Contact Us</a></li>
-              <li><a href="#">Pricing And Plans</a></li>
-              <li><a href="#">Cookies Policy</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4">
-          <div class="footer-contact-info">
-            <h5 class="text-primary mb-3">Our Contact Details </h5>
-            <div class="contact-address">
-              <div class="contact-item">
-                <label>Address:</label>
-                <p>{{$settings->site_address}}</p>
-              </div>
-              <div class="contact-item">
-                <label>Phone:</label>
-                <h4 class="mb-0 fw-bold"><a href="#">{{$settings->site_phone}}</a></h4>
-              </div>
-              <div class="contact-item">
-                <label>Email:</label>
-                <a class="text-dark" href="#">{{$settings->site_email}}</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom py-sm-5 py-4">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <p class="mb-0">   {{$settings->site_copyright}}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
- <script src="{{asset('/frontend/js/jquery-3.6.0.min.js')}}"></script>
- <script src="{{asset('/frontend/js/popper/popper.min.js')}}"></script>
- <script src="{{asset('/frontend/js/bootstrap/bootstrap.min.js')}}"></script>
- <script src="{{asset('/frontend/js/jquery.appear.js')}}"></script>
- <script src="{{asset('/frontend/js/swiper/swiper.min.js')}}"></script>
- <script src="{{asset('/frontend/js/swiperanimation/SwiperAnimation.min.j')}}s"></script>
- <script src="{{asset('/frontend/js/counter/jquery.countTo.js')}}"></script>
- <script src="{{asset('/frontend/js/owl-carousel/owl.carousel.min.js')}}"></script>
- <script src="{{asset('/frontend/js/magnific-popup/jquery.magnific-popup.min.js')}}"></script>
+        </footer>
 
- <script src="{{asset('/frontend/js/custom.js')}}"></script>
 
-</body>
-</html>
+      
+      
+      <script src="{{asset('/frontend/js/vendor/jquery-3.6.0.min.js')}}"></script>
+        <script src="{{asset('/frontend/js/bootstrap.min.js')}}"></script>
+        <script src="{{asset('/frontend/js/isotope.pkgd.min.js')}}"></script>
+        <script src="{{asset('/frontend/js/imagesloaded.pkgd.min.js')}}"></script>
+        <script src="{{asset('/frontend/js/jquery.magnific-popup.min.js')}}"></script>
+        <script src="{{asset('/frontend/js/jquery.odometer.min.js')}}"></script>
+        <script src="{{asset('/frontend/js/jquery.appear.js')}}"></script>
+        <script src="{{asset('/frontend/js/slick.min.js')}}"></script>
+        <script src="{{asset('/frontend/js/ajax-form.js')}}"></script>
+        <script src="{{asset('/frontend/js/wow.min.js')}}"></script>
+        <script src="{{asset('/frontend/js/gsap.js')}}"></script>
+        <script src="{{asset('/frontend/js/ScrollTrigger.js')}}"></script>
+        <script src="{{asset('/frontend/js/SplitText.js')}}"></script>
+        <script src="{{asset('/frontend/js/gsap-animation.js')}}"></script>
+        <script src="{{asset('/frontend/js/main.js')}}"></script>

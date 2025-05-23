@@ -1,23 +1,24 @@
-<section class="banner">
-    <div class="swiper-container">
-      <div class="swiper-wrapper h-700 h-sm-500">
+  <section class="slider-area">
+                <div class="slider-active">
+                  @foreach($sliders as $slider)
+                    <div class="single-slider slider-bg" data-background="{{asset('images/'.$slider->image)}}">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-xl-8 col-lg-9">
+                                    <div class="slider-content">
+                                        <span class="sub-title" data-animation="fadeInUp" data-delay=".3s">{{$slider->title}}</span>
+                                        <h2 class="title" data-animation="fadeInUp" data-delay=".6s">{!! $slider->content !!}</h2>
+                                        <div class="slider-btn">
+                                            <a href="{{$slider->links}}" class="btn" data-animation="fadeInLeft" data-delay=".9s">Start a Project</a>
+                                            <a href="{{$slider->links}}" class="btn btn-two" data-animation="fadeInRight" data-delay=".9s"><span>Discover More</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                  
 
-        @foreach ($sliders as $slider)
-        <div class="swiper-slide align-items-center d-flex responsive-overlap-md bg-overlay-black-30" style="background-image:url('{{asset('images/'.$slider->image)}}'); background-size: cover; background-position: center center;">
-          <div class="swipeinner container">
-            <div class="row justify-content-center">
-              <div class="col-lg-9 col-md-10 text-center position-relative">
-                <h1 data-swiper-animation="fadeInUp" data-duration="1s" data-delay="0.25s">{{$slider->title}}</h1>
-                <h6 data-swiper-animation="fadeInUp" data-duration="1s" data-delay="0.5s">{{$slider->content}}</h6>
-              </div>
-            </div>
-          </div>
-        </div>
-        @endforeach
-     
-
-      </div>
-      <div class="swiper-button-prev"><i class="fas fa-arrow-left icon-btn"></i></div>
-      <div class="swiper-button-next"><i class="fas fa-arrow-right icon-btn"></i></div>
-    </div>
-  </section>
+                </div>
+            </section>

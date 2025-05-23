@@ -15,6 +15,7 @@ use App\Http\Controllers\MenuController as MenuPage;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\Check2faController;
 use App\Http\Controllers\FormController;
+use App\Http\Controllers\ServicesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -77,7 +78,6 @@ Route::group(['prefix' => 'manage', 'as' => 'admin.'], function(){
     });
   
 
-
     Route::controller(SettingsController::class)->group(function(){
         Route::get('/website/settings/index', 'Index')->name('settings.index');
         Route::get('/website/settings/testimonias', 'Testimonials')->name('settings.testimonials');
@@ -119,6 +119,16 @@ Route::group(['prefix' => 'manage', 'as' => 'admin.'], function(){
         Route::get('/website/faq/edit/{id}', 'Edit')->name('faqEdit');
         Route::post('/website/faq/update/{id}', 'Update')->name('faqUpdate');
         Route::get('/website/faq/delete/{id}', 'Delete')->name('faqDelete');
+    });
+
+    Route::controller(ServicesController::class)->group(function() {
+        Route::get('/website/services/index', 'Index')->name('services.index');
+        Route::get('/website/services/create', 'Create')->name('services.Create');
+        Route::post('/website/services/store', 'Store')->name('services.Store');
+        Route::get('/website/services/edit/{id}', 'Edit')->name('services.Edit');
+        Route::post('/website/services/update/{id}', 'Update')->name('services.Update');
+        Route::get('/website/services/delete/{id}', 'Delete')->name('services.Delete');
+
     });
 
 });
