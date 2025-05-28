@@ -79,7 +79,7 @@
                         <div class="row">
                             <div class="col-lg-7">
                                 <div class="copyright-text">
-                                        {{$settings->site_copyright}}
+                                        {!! $settings->site_copyright !!}
                                 </div>
                             </div>
                         </div>
