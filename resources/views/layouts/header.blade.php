@@ -35,7 +35,7 @@
 
                                             <ul class="navigation">
                                             @foreach ($menus as $menu )
-                                            <li class="@if($menu->has_child) active menu-item-has-children
+                                            <li class="@if($menu->has_child)    menu-item-has-children
                                                 @else @endif ">@if($menu->name == 'Home') <a href="{{route('index')}}">{{$menu->name}}</a> 
                                                 @else <a href="{{route('pages', encrypt($menu->id))}}">{{$menu->name}}</a> @endif
                                                 @if(count($menu->subMenu) > 0)

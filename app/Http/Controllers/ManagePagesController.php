@@ -6,6 +6,7 @@ use App\Models\Menu;
 use Illuminate\Http\Request;
 use App\Models\Page;
 use App\Models\SubMenu;
+use Illuminate\Support\Facades\Session;
 
 class ManagePagesController extends Controller
 {
@@ -36,6 +37,7 @@ class ManagePagesController extends Controller
     }
 
     public function PagesStore(Request $request){
+
         $request->validate([
             'title' => 'required',
             'contents' => 'required',
@@ -49,8 +51,8 @@ class ManagePagesController extends Controller
             $data['sub_menu_id'] = $request->subMenu_id;
             $subChek = SubMenu::where(['id' => $request->subMenu_id])->first();
             if($subChek->is_active == 1){
-                \Session::flash('alert', 'error');
-                \Session::flash('message', 'You cannot assign a page to this Menu, a page already exit, you can delete the page to reassign');
+                Session::flash('alert', 'error');
+                Session::flash('message', 'You cannot assign a page to this Menu, a page already exit, you can delete the page to reassign');
                 return back()->withInput();
             }
             $subChek->update(['is_active' => 1]);
@@ -58,8 +60,8 @@ class ManagePagesController extends Controller
             $data['menu_id'] = $request->menu_id;
             $MenuChek = Menu::where(['id' => $request->menu_id])->first();
             if($MenuChek->is_active == 1){
-                \Session::flash('alert', 'error');
-                \Session::flash('message', 'You cannot assign a page to this Menu, a page already exit, you can delete the page to reassign');
+                Session::flash('alert', 'error');
+                Session::flash('message', 'You cannot assign a page to this Menu, a page already exit, you can delete the page to reassign');
             return back()->withInput();
             }
             $MenuChek->update(['is_active' => 1]);
@@ -79,13 +81,13 @@ class ManagePagesController extends Controller
         }
         
         Page::create($data);
-        \Session::flash('alert', 'success');
-        \Session::flash('message','Page added successfully');
+        Session::flash('alert', 'success');
+        Session::flash('message','Page added successfully');
         return back();
     
     }catch(\Exception $e){
-        \Session::flash('alert', 'error');
-        \Session::flash('message','Request Failed, try again');
+        Session::flash('alert', 'error');
+        Session::flash('message',$e->getMessage());
         return back()->withInput();
     }
 }

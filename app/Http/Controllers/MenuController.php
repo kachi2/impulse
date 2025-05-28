@@ -7,6 +7,7 @@ use App\Models\Page;
 use App\Models\SubMenu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
+use Illuminate\Support\Facades\Session;
 
 class MenuController extends Controller
 {
@@ -31,8 +32,8 @@ class MenuController extends Controller
         ]);
         $check = Menu::where('name', $request->name)->first();
         if($check){
-            \Session::flash('alert', 'error');
-            \Session::flash('message','Menu already exist');
+            Session::flash('alert', 'error');
+            Session::flash('message','Menu already exist');
             return back()->withInput();
         }
 
@@ -43,8 +44,8 @@ class MenuController extends Controller
         ]);
 
         if($menu){
-            \Session::flash('alert', 'success');
-            \Session::flash('message','Menu added successfully');
+            Session::flash('alert', 'success');
+            Session::flash('message','Menu added successfully');
             return back();
         }
     }
@@ -58,25 +59,24 @@ class MenuController extends Controller
     public function Update(Request $request, $id){
         $menu = Menu::findorfail(decrypt($id));
         Menu::where('id', $menu->id)->update(['name' => $request->name]);
-        \Session::flash('alert', 'success');
-        \Session::flash('message','Menu updated successfully');
+        Session::flash('alert', 'success');
+        Session::flash('message','Menu updated successfully');
         return back();
     }
 
     public function Disable($id){
-       // dd($id);
         $menu = Menu::findorfail(decrypt($id));
         Menu::where('id', $menu->id)->update(['status' => 0]);
-        \Session::flash('alert', 'error');
-        \Session::flash('message','Menu disabled successfully');
+        Session::flash('alert', 'error');
+        Session::flash('message','Menu disabled successfully');
         return back();
     }
 
     public function Enable($id){
         $menu = Menu::findorfail(decrypt($id));
         Menu::where('id', $menu->id)->update(['status' => 1]);
-        \Session::flash('alert', 'success');
-        \Session::flash('message','Menu Enabled successfully');
+        Session::flash('alert', 'success');
+        Session::flash('message','Menu Enabled successfully');
         return back();
     }
 
@@ -91,16 +91,15 @@ class MenuController extends Controller
     public function SubMenuStore(Request $request, $id){
         $request->validate([
             'name' => 'required',
-            'image' => 'file|required',
-            'title' => 'max:245 | required',
+            'image' => 'required',
+            'title' => 'required',
         ]);
 
         $menu = Menu::where('id', decrypt($id))->first();
         if(!$menu){
             return back();
         }
-        Menu::where('id', $menu->id)->update(['has_child' => 1, 'is_active' => 1]);
-
+        Menu::where('id', $menu->id)->update(['has_child' => 1, 'status' => 1]);
         $image = $request->file('image');
         $ext = $image->getClientOriginalExtension();
         $fileName = time().'.'.$ext;
@@ -112,12 +111,12 @@ class MenuController extends Controller
             'image' => $fileName
         ]);
         if($sub){
-        \Session::flash('alert', 'success');
-        \Session::flash('message','Sub Menu created successfully');
+        Session::flash('alert', 'success');
+        Session::flash('message','Sub Menu created successfully');
         return redirect()->back();
         }else{
-            \Session::flash('alert', 'error');
-            \Session::flash('message','Something went wrong, try again');
+        Session::flash('alert', 'error');
+        Session::flash('message','Something went wrong, try again');
             return back();
         }
     }
@@ -139,8 +138,8 @@ class MenuController extends Controller
             Menu::where('id', $sub->menu_id)->update(['has_child' => null]);
         }
         //dd($menu);
-        \Session::flash('alert', 'error');
-        \Session::flash('message','Sub Menu Deleted Successfully');
+        Session::flash('alert', 'error');
+        Session::flash('message','Sub Menu Deleted Successfully');
         return back();
 
     }
@@ -173,12 +172,12 @@ class MenuController extends Controller
         }
         $sub = $sub->fill($data);
         if($sub->save()){
-            \Session::flash('alert', 'success');
-            \Session::flash('message','Sub Menu Updated Successfully');
+        Session::flash('alert', 'success');
+        Session::flash('message','Sub Menu Updated Successfully');
             return back();
         }else{
-            \Session::flash('alert', 'error');
-            \Session::flash('message','Something went wrong, tty again');
+        Session::flash('alert', 'error');
+        Session::flash('message','Something went wrong, tty again');
             return back();
         }
     }

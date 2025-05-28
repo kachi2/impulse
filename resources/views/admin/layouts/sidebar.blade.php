@@ -18,7 +18,7 @@
             </ul>
         </li>
         <li class="navigation-divider">Pages</li>
-               <li>
+        <li>
                <a  href="" data-toggle="tooltip" data-placement="right" title="Manage Pages"
                data-nav-target="#dashboards">
                 <i class="fa fa-file"></i> &nbsp; Manage Pages
@@ -29,19 +29,18 @@
               </ul>
         </li>
 
-        <li class="navigation-divider">Services</li>
-        <li>
-        <a  href="" data-toggle="tooltip" data-placement="right" title="Manage Pages"
-        data-nav-target="#dashboards">
-         <i class="fa fa-file"></i> &nbsp; Manage Services
-         </a>
-         <ul>
-             <li><a href="{{route('admin.services.index')}}">Manage Services</a></li>
-             <li><a href="{{route('admin.services.Create')}}">Create Service page</a></li>
-       </ul>
- </li>
+          <li>
+            <a  href="" data-toggle="tooltip" data-placement="right" title="Manage Blogs"
+               data-nav-target="#dashboards">
+               <i class="fa fa-user"></i>&nbsp; Manage Teams</a>
+                <ul>
+                      <li><a href="{{route('admin.teams.index')}}">Manage team</a></li>
+                      <li><a href="{{route('admin.teams.create')}}">Add team</a></li>
+                </ul>
+        </li> 
+
       
- <li class="navigation-divider">Blogs</li>
+      <li class="navigation-divider">Blogs</li>
          <li>
             <a  href="" data-toggle="tooltip" data-placement="right" title="Manage Blogs"
                data-nav-target="#dashboards">

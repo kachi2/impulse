@@ -33,7 +33,7 @@ class ClientLogoController extends Controller
             $image = $request->file('image');
             $ext = $image->getClientOriginalExtension();
             $fileName = time().'.'.$ext;
-            Image::make($image)->resize(234,80)->save('images/'.$fileName);
+            Image::make($image)->save('images/'.$fileName);
             // $image->move('images',$fileName);
     }
     $link = route('subpages', encrypt($request->link));

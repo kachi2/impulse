@@ -108,7 +108,7 @@
 
     <footer>
         <div class="container-fluid">
-            <div>© 2023 {{$settings->site_name}}, All Rights Reserved</a></div>
+            <div>© {{date('Y')}} {{$settings->site_name}}, All Rights Reserved</a></div>
             <div>
                 
             </div>

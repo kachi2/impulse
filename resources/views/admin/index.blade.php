@@ -3,11 +3,11 @@
 <div class="container-fluid">
 
     <div class="row">
-        <div class="col-md-7">
+        <div class="col-md-12">
             <div class="card bg-secondary-gradient">
                 <div class="card-body">
                     <div class="row align-items-center">
-                        <div class="col-md-7">
+                        <div class="col-md-12">
                             <h6 class="card-title mb-3">Welcome back Admin!</h6>
                             <p>Manage your website easily.</p>
                             <ul class="mb-3">
@@ -15,9 +15,6 @@
                                 <li>Manage jobs and applicants</li>
                             </ul>
                             
-                        </div>
-                        <div class="col-md-5">
-                            <img src="{{asset('images/files.svg')}}" alt="..." class="img-fluid">
                         </div>
                     </div>
                 </div>

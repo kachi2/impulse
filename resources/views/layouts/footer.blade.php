@@ -5,8 +5,8 @@
                         <div class="row">
                             <div class="col-lg-3 col-md-4 col-sm-6">
                                 <div class="footer-widget">
-                                    <div class="fw-logo">
-                                        <a href="index.html"><img src="{{asset('/assets/'.$settings->logo)}}" alt=""></a>
+                                    <div class="fw-logo p-2" style="background: #fff">
+                                        <a href="{{route('index')}}" ><img src="{{asset('/assets/'.$settings->logo)}}" alt=""></a>
                                     </div>
                                     <div class="footer-content">
                                         <p>{{$settings->about}}</p>
@@ -22,15 +22,13 @@
                             <div class="col-lg-3 col-md-4 col-sm-6">
                                 <div class="footer-widget">
                                     <div class="fw-title">
-                                        <h4 class="title">IT Services</h4>
+                                        <h4 class="title">Our Services</h4>
                                     </div>
                                     <div class="fw-link">
                                         <ul class="list-wrap">
-                                            <li><a href="it-services.html">IT Services</a></li>
-                                            <li><a href="it-services.html">Cyber Security</a></li>
-                                            <li><a href="it-services.html">Cloud Computing</a></li>
-                                            <li><a href="it-services.html">Managed IT</a></li>
-                                            <li><a href="it-services.html">IT Support</a></li>
+                                           @foreach ($sidebar_services as $menu_ft )
+                                                <li><a href="{{route('subpages', encrypt($menu_ft->id))}}">{{$menu_ft->name}}</a></li>
+                                                @endforeach
                                         </ul>
                                     </div>
                                 </div>
@@ -44,8 +42,12 @@
                                         <ul class="list-wrap">
                                          <ul class="list list-6">
                                         @foreach ($menus as $menu )
+                                  
                                         <li > 
-                                        @if($menu->name == 'Home') <a href="{{route('index')}}">{{$menu->name}}</a> @else <a style="color:#211d1d" href="{{route('pages', encrypt($menu->id))}}">{{$menu->name}}</a> @endif
+                                        @if($menu->name == 'Home') <a href="{{route('index')}}">{{$menu->name}}</a>
+                                         @else 
+                                         <a href="{{route('pages', encrypt($menu->id))}}">{{$menu->name}}</a> 
+                                         @endif
                                         </li>
                                         @endforeach
                                 
