@@ -91,7 +91,7 @@
 
       
       
-      <script src="{{asset('/frontend/js/vendor/jquery-3.6.0.min.js')}}"></script>
+      <script src="{{asset('/frontend/js/jquery-3.6.0.min.js')}}"></script>
         <script src="{{asset('/frontend/js/bootstrap.min.js')}}"></script>
         <script src="{{asset('/frontend/js/isotope.pkgd.min.js')}}"></script>
         <script src="{{asset('/frontend/js/imagesloaded.pkgd.min.js')}}"></script>
