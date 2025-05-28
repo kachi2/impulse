@@ -61,12 +61,12 @@
                                     <div class="fw-title">
                                         <h4 class="title">Support</h4>
                                     </div>
-                                    <div class="fw-link">
+                                    <div class="fw-link" >
                                         <ul class="list-wrap">
-                                        <p><i class="fa fa-map-marker"></i> {{$settings->address}}.</p>
-                                        <p><i class="fa fa-phone"></i>  {{$settings->site_phone}}</p>
-                                        <p><i class="fa fa-envelope-o"></i>  {{$settings->site_email}}</p>
-                                        <p><i class="fa fa-clock-o"></i>  {{$settings->opening_hours}}</p>
+                                        <p style="color:white"><i class="fa fa-map-marker"></i> {{$settings->address}}.</p>
+                                        <p style="color:white"><i class="fa fa-phone"></i>  {{$settings->site_phone}}</p>
+                                        <p style="color:white"><i class="fa fa-envelope-o"></i>  {{$settings->site_email}}</p>
+                                        <p style="color:white"><i class="fa fa-clock-o"></i>  {{$settings->opening_hours}}</p>
                                         </ul>
                                     </div>
                                 </div>
