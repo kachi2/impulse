@@ -8,6 +8,7 @@
     <!-- Favicon -->
  <link rel="stylesheet" href="{{asset('/backend/vendors/dataTable/dataTables.min.css')}}" type="text/css">
  <link rel="shortcut icon" href="{{asset('/images/fav.png')}}" type="image/x-icon"/>
+ 
     <!-- Plugin styles -->
     <link rel="stylesheet" href="{{asset('/backend/vendors/bundle.css')}}" type="text/css">
   <!-- Datepicker -->
