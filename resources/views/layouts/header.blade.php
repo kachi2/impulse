@@ -29,7 +29,7 @@
                             <div class="menu-wrap">
                                 <nav class="menu-nav">
                                     <div class="logo">
-                                        <a href="index.html"><img src="{{asset('assets/'.$settings->logo)}}" alt="Logo" style="width: 100px"></a>
+                                        <a href="{{route('index')}}"><img src="{{asset('assets/'.$settings->logo)}}" alt="Logo" style="width: 100px"></a>
                                     </div>
                                     <div class="navbar-wrap main-menu d-none d-lg-flex">
 
