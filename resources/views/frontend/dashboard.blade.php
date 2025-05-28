@@ -187,7 +187,7 @@
                         <div class="col-xl-6">
                             <div class="section-title text-center mb-40 tg-heading-subheading animation-style2">
                                 <span class="sub-title tg-element-title">Our Team</span>
-                                <h2 class="title tg-element-title">Meet the Teem of <br> Innovators!</h2>
+                                <h2 class="title tg-element-title">Meet the Team of <br> Innovators!</h2>
                             </div>
                         </div>
                     </div>
